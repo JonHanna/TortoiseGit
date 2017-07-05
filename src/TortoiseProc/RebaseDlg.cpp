@@ -2478,7 +2478,7 @@ void CRebaseDlg::OnBnClickedButtonReverse()
 
 void CRebaseDlg::OnBnClickedButtonBrowse()
 {
-	if(CBrowseRefsDlg::PickRefForCombo(&m_UpstreamCtrl))
+	if (CBrowseRefsDlg::PickRefForCombo(m_UpstreamCtrl))
 		OnCbnSelchangeUpstream();
 }
 
