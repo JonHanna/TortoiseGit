@@ -436,7 +436,7 @@ void CPushDlg::OnBnClickedOk()
 			this->m_BranchRemote.SaveHistory();
 			m_RemoteReg = m_Remote.GetString();
 
-			if (!m_BranchSourceName.IsEmpty())
+			if (!m_BranchSourceName.IsEmpty() && g_Git.IsLocalBranch(m_BranchSourceName))
 			{
 				CString configName;
 				if (m_bSetPushBranch)
@@ -481,7 +481,7 @@ void CPushDlg::OnBnClickedButtonBrowseSourceBranch()
 	{
 	case 0: /* Browse Refence*/
 		{
-			if(CBrowseRefsDlg::PickRefForCombo(&m_BranchSource, gPickRef_Head))
+			if (CBrowseRefsDlg::PickRefForCombo(m_BranchSource, gPickRef_Head | gPickRef_Tag))
 				OnCbnSelchangeBranchSource();
 		}
 		break;
